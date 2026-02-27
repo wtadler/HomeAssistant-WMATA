@@ -1,11 +1,18 @@
 # HomeAssistant-WMATA
 
+**_February 2026 note: This is a fork of @benlikethecolor's [original repository](https://github.com/benlikethecolor/HomeAssistant-WMATA), which has not been updated since summer 2025. This fork continues maintenance and resolves several open issues from the original project._**
+
 Integration to connect with the WMATA API to report upcoming trains/buses at local stops. 
 
-<!-- [![Stars](https://img.shields.io/github/stars/benlikethecolor/HomeAssistant-WMATA)](#) -->
-[![Last commit](https://img.shields.io/github/last-commit/benlikethecolor/HomeAssistant-WMATA)](#)
+![Tile Card Example](docs/images/Tile.png?raw=true)
 
-<p align="center"><img src="https://github.com/benlikethecolor/HomeAssistant-WMATA/blob/main/docs/images/Tile.png?raw=true" width="80%"></p>
+## Features
+
+- Real-time arrival information for Metro trains and buses
+- Multiple station/stop support
+- Easy integration with Home Assistant dashboards
+- Support for popular card types (Tile, Bubble Card, Mushroom)
+
 
 ## Installation
 
@@ -13,7 +20,7 @@ To install this integration, you will need to have HACS installed. If you do not
 
 After HACS is installed, you should be able to click this button to install this integration:
 
-[![Open Bubble Card on Home Assistant Community Store (HACS).](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=benlikethecolor&repository=WMATA&category=integration)
+[![Open Bubble Card on Home Assistant Community Store (HACS).](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wtadler&repository=HomeAssistant-WMATA&category=integration)
 
 If the above doesn't work, here's the manual installation steps:
 
@@ -41,7 +48,7 @@ If you ever lose or forget your API details, you can find it [on your profile](h
 
 ### Getting Your Metro Station ID
 
-Unfortunately there's no good way to see a list of all of the bus station stop or metro station codes online outside of using the API. I've provided a list of the [metro station codes in this file](https://github.com/benlikethecolor/HomeAssistant-WMATA/blob/main/docs/METRO_STATION_CODES.md). Simply open it, find your local metro station, and add the code next to it. 
+Unfortunately there's no good way to see a list of all of the bus station stop or metro station codes online outside of using the API. I've provided a list of the [metro station codes in this file](docs/METRO_STATION_CODES.md). Simply open it, find your local metro station, and add the code next to it. 
 
 **IMPORTANT NOTE:** if you see that your "local" metro station has two entries, make sure to pick the entry with the line you want. For example, say your local metro station is "Metro Center", and you ride the orange line. In this case, you would select the station code "C01", not "A01". 
 
@@ -58,8 +65,10 @@ If you want to have buses/trains for multiple stations setup, follow these steps
 3. Enter your API key again, along with the new station/stop ID
 4. Select "Submit"
 
-After this is completed, you should see the new entities appear for the new station, like the below:
-<p align="center"><img src="https://github.com/benlikethecolor/HomeAssistant-WMATA/blob/main/docs/images/Multiple%20Stations%20Sensors.png?raw=true" width="50%"></p>
+After this is completed, you should see the new entities appear for the new station:
+
+![Multiple Stations Sensors](docs/images/Multiple%20Stations%20Sensors.png)
+
 
 ## Dashboards
 
@@ -67,7 +76,7 @@ After this is completed, you should see the new entities appear for the new stat
 
 If you use tile card, here's a quick sample I've created using this integration.
 
-<p align="center"><img src="https://github.com/benlikethecolor/HomeAssistant-WMATA/blob/main/docs/images/Tile.png?raw=true" width="80%"></p>
+![Tile Card Example](docs/images/Tile.png)
 
 ```yaml
 type: tile
@@ -82,9 +91,9 @@ type: tile
 
 ### Bubble Card
 
-If you use bubble card, here's a quick sample I've created using this integration. 
+If you use bubble card, here's a quick sample I've created using this integration.
 
-<p align="center"><img src="https://github.com/benlikethecolor/HomeAssistant-WMATA/blob/main/docs/images/Bubble%20Card.png?raw=true" width="90%"></p>
+![Bubble Card Example](docs/images/Bubble%20Card.png)
 
 ```yaml
 type: custom:bubble-card
@@ -106,6 +115,7 @@ sub_button:
     show_background: true
     state_background: true
 ```
+
 ### Mushroom Template Badge
 
 The [Mushroom package](https://github.com/piitaya/lovelace-mushroom) allows you to make a nice [Mushroom Template badge](https://github.com/piitaya/lovelace-mushroom/blob/main/docs/badges/template.md) like so:
@@ -134,30 +144,17 @@ tap_action:
   action: more-info
 ```
 
-<!-- ### Mushroom
-
-If you use mushroom, here's a quick sample I've created using this integration. 
-
-<p align="center"><img src="https://github.com/benlikethecolor/HomeAssistant-WMATA/blob/main/docs/images/Mushroom.png?raw=true" width="80%"></p>
-
-```yaml
-type: horizontal-stack
-cards:
-  - type: custom:mushroom-entity-card
-    entity: sensor.wmata_a01_train_1_destination
-  - type: custom:mushroom-entity-card
-    entity: sensor.wmata_a01_train_1_line
-  - type: custom:mushroom-entity-card
-    entity: sensor.wmata_a01_train_1_time
-``` -->
 
 ## Future Improvements
 
 - Change the way that this is setup so that you only need one station ID for stations with multiple codes. Just enter one or the other, have the code just search for both while you're there
 - Make a better interactive way to find your bus stop ID when initializing the integration
 
-## Thanks
+## @wtadler thanks
+- [@benlikethecolor](https://github.com/benlikethecolor) for being the original author of this repo!
 
+## @benlikethecolor thanks
 - WMATA for providing this API
+
 - [@walrus416](https://github.com/walrus416) for making a [similar integration](https://github.com/walrus416/ha-wmata/tree/master) as a starting point
 - [@msp1974](https://github.com/msp1974) for providing [helpful integration examples](https://github.com/msp1974/HAIntegrationExamples)

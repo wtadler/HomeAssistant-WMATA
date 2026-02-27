@@ -2,16 +2,16 @@
     "domain": "wmata",
     "name": "WMATA",
     "codeowners": [
-        "@benlikethecolor"
+        "@wtadler"
     ],
     "config_flow": true,
-    "documentation": "https://github.com/benlikethecolor/HomeAssistant-WMATA",
+    "documentation": "https://github.com/wtadler/HomeAssistant-WMATA",
     "integration_type": "hub",
     "iot_class": "cloud_polling",
-    "issue_tracker": "https://github.com/benlikethecolor/HomeAssistant-WMATA/issues",
+    "issue_tracker": "https://github.com/wtadler/HomeAssistant-WMATA/issues",
     "requirements": [
         "requests>=2.23.0",
         "aiohttp>=3.7.4"
     ],
-    "version": "2.0.0"
+    "version": "2.3.0"
 }
